@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Simple service for k8s course
+paths:
+  /:
+    get:
+      summary: returns a sample response
+      responses:
+        200:
+          description: some text with a reference to the TV Series MrRobot
+  /version:
+    get:
+      summary: returns the version number of the service
+      responses:
+        200:
+          description: successful version value
+        500:
+          description: when the service is *deliberately* "broken" (using `/break`)
+  /crash:
+    get:
+      summary: crash the server (`process.exit()`)
+  /break:
+    get:
+      summary: breaks the server (request to `/version` will fail)
